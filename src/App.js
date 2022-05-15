@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
+import "./App.css";
+import "./index.css";
+
+import Home from "./pages/Home";
+import CharacInf from "./pages/CharacInf";
+import Comics from "./pages/Comics";
+import Favorites from "./pages/Favorites";
+
+import Header from "./components/Header";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+library.add(faHeart);
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
+
+  const addFavorite = (charcom) => {
+    let favoritesCopy = [...favorites];
+    let newFav = { ...charcom };
+    favoritesCopy.push(newFav);
+    setFavorites(favoritesCopy);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home addFavorite={addFavorite} />} />
+        <Route path="/comics/:characterId" element={<CharacInf />} />
+        <Route path="/comics" element={<Comics addFavorite={addFavorite} />} />
+        <Route
+          path="/favorites"
+          element={<Favorites favorites={favorites} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 

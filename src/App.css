@@ -1,38 +1,171 @@
-.App {
+/* GENRAL RULES */
+body {
+  background-color: #dcebf9;
+}
+
+h1 {
+  text-align: center;
+  color: red;
+  font-size: 30px;
+  margin: 30px 0;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* HEADER */
+
+header {
+  background-color: white;
+  position: sticky;
+  top: Opx;
+  position: -webkit-sticky;
+  /* align-self: flex-start; */
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoMarvel {
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+header nav {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+button {
+  height: 25px;
+  border-radius: 10px;
+}
+
+/* HOME / CHARACTERS */
+
+.search {
+  width: 250px;
+  height: 25px;
+  border-radius: 10px;
+  display: flex;
+  margin: 20px auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.characters-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.char-in-list {
+  width: 22%;
+  margin: 30px 0;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.char-in-list:hover {
+  cursor: pointer;
+}
+
+h3 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.char-in-list p {
+  text-align: justify;
+  padding: 10px 0;
+}
+
+.character-img {
+  width: 100%;
+  height: 253px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.what-page {
+  width: 400px;
+  margin: 30px auto;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.heart {
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.char-in-list:hover > .heart {
+  opacity: 1;
+}
+
+.heart:hover {
+  background-color: black;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+/* CHARACTER INFORMATIONS */
+
+.charInf {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.charInf > * {
+  margin: 10px;
+}
+
+.characterPic {
+  height: 300px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.char-comics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.char-comics article {
+  width: 200px;
+  height: 400px;
+  padding: 10px;
+}
+
+.comicofcharimg {
+  width: 100%;
+  object-fit: cover;
 }
